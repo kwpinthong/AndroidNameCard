@@ -125,13 +125,6 @@ public class MainActivity extends AppCompatActivity {
     */
 
     public void click (View View){
-//        long time = System.currentTimeMillis();
-//        if(time%2==0)
-//            setDataViewModel(getResources().getString(R.string.name),  getResources().getString(R.string.idCode),
-//                    getResources().getString(R.string.email), getResources().getString(R.string.phone));
-//       else
-//            setDataViewModel(getResources().getString(R.string.name2),  getResources().getString(R.string.idCode2),
-//                    getResources().getString(R.string.email2), getResources().getString(R.string.phone2));
         if (unRead) {
             db.collection("students")
                     .get()
@@ -157,14 +150,6 @@ public class MainActivity extends AppCompatActivity {
                     });
             unRead = false;
         } else setData();
-
-
-//        if (unRead) {
-////            readAll();
-//            unRead = false;
-//        }
-//
-//        Log.d(TAG, " sizeofstudents " + students.size());
 
     }
 
