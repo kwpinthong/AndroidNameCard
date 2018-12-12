@@ -9,7 +9,7 @@ public class MainViewModel extends ViewModel {
     private String phone;
 
     public MainViewModel() {
-        this.name = "------------------------------ -------";
+        this.name = "-------------------------------------";
         this.id = "Welcome Tenno";
         this.email = "Email: -------------------------------------------------------";
         this.phone = "Phone: --------------------------------";

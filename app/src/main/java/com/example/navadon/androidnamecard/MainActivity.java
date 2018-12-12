@@ -7,13 +7,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import android.widget.TextView;
 
 import com.example.navadon.androidnamecard.databinding.ActivityMainBinding;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private FirebaseFirestore db;
     private static final String TAG = "MainActivity";
+    private String nameText = "";
+    private String emailText = "";
+    private String idText = "";
+    private String phoneText = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initFirestore();
-        test();
     }
 
     private void initView(){
@@ -77,6 +86,23 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    public void read(View View) {
+        DocumentReference docRef = db.collection("students").document("1");
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Student student = documentSnapshot.toObject(Student.class);
+                Log.d("CREATION", "Test");
+
+                viewModel.setId(student.id);
+                viewModel.setName(student.name);
+                viewModel.setEmail(student.email);
+                viewModel.setPhone(student.phone);
+                click();
+            }
+        });
+    }
+
     /*
     private void initOnClickListener(){
         // Only one OnclickListener is created to handle all onClick events.
@@ -95,14 +121,14 @@ public class MainActivity extends AppCompatActivity {
     }
     */
 
-    public void click (View View){
-        long time = System.currentTimeMillis();
-        if(time%2==0)
-            setDataViewModel(getResources().getString(R.string.name),  getResources().getString(R.string.idCode),
-                    getResources().getString(R.string.email), getResources().getString(R.string.phone));
-       else
-            setDataViewModel(getResources().getString(R.string.name2),  getResources().getString(R.string.idCode2),
-                    getResources().getString(R.string.email2), getResources().getString(R.string.phone2));
+    public void click (){
+//        long time = System.currentTimeMillis();
+//        if(time%2==0)
+//            setDataViewModel(getResources().getString(R.string.name),  getResources().getString(R.string.idCode),
+//                    getResources().getString(R.string.email), getResources().getString(R.string.phone));
+//       else
+//            setDataViewModel(getResources().getString(R.string.name2),  getResources().getString(R.string.idCode2),
+//                    getResources().getString(R.string.email2), getResources().getString(R.string.phone2));
 
         // Step 3 //
         binding.name.setText(viewModel.getName());
@@ -138,4 +164,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     */
+
+    public static class Student {
+        public String name;
+        public String id;
+        public String email;
+        public String phone;
+
+        public Student(){}
+
+        public Student(String name, String id, String email, String phone) {
+            this.name = name;
+            this.id = id;
+            this.email = email;
+            this.phone = phone;
+        }
+    }
 }
+
+
