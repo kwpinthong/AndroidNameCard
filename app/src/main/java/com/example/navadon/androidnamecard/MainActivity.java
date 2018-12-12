@@ -20,6 +20,7 @@ import com.example.navadon.androidnamecard.databinding.ActivityMainBinding;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private String emailText = "";
     private String idText = "";
     private String phoneText = "";
+    ArrayList<Student> students = new ArrayList<Student>();
+    private int count = 0;
+    private boolean unRead = true;
 
 
     @Override
@@ -92,13 +96,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Student student = documentSnapshot.toObject(Student.class);
-                Log.d("CREATION", "Test");
 
                 viewModel.setId(student.id);
                 viewModel.setName(student.name);
                 viewModel.setEmail(student.email);
                 viewModel.setPhone(student.phone);
-                click();
+//                click();
             }
         });
     }
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
     */
 
-    public void click (){
+    public void click (View View){
 //        long time = System.currentTimeMillis();
 //        if(time%2==0)
 //            setDataViewModel(getResources().getString(R.string.name),  getResources().getString(R.string.idCode),
@@ -129,6 +132,52 @@ public class MainActivity extends AppCompatActivity {
 //       else
 //            setDataViewModel(getResources().getString(R.string.name2),  getResources().getString(R.string.idCode2),
 //                    getResources().getString(R.string.email2), getResources().getString(R.string.phone2));
+        if (unRead) {
+            db.collection("students")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    Student student = document.toObject(Student.class);
+                                    students.add(student);
+                                    Log.d(TAG, document.getId() + " => " + document.getData() + " == " + document.getData());
+                                    Log.d(TAG, " sizeofstudents " + students.size());
+                                }
+                                // funct
+                                setData();
+                                //funct
+
+                            } else {
+                                Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+            unRead = false;
+        } else setData();
+
+
+//        if (unRead) {
+////            readAll();
+//            unRead = false;
+//        }
+//
+//        Log.d(TAG, " sizeofstudents " + students.size());
+
+    }
+
+    public void setData(){
+        Student student = students.get(count);
+        viewModel.setId(student.id);
+        viewModel.setName(student.name);
+        viewModel.setEmail(student.email);
+        viewModel.setPhone(student.phone);
+
+        if (students.size()-1 > count)
+            count++;
+        else count = 0;
 
         // Step 3 //
         binding.name.setText(viewModel.getName());
