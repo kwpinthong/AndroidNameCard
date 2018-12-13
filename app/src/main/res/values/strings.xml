@@ -10,10 +10,16 @@
     <string name="phone2">Phone: 094-XXXXXXX</string>
 
     <string name="btn_change">Change Information</string>
+    <string name="btn_add">Add Student</string>
 
     <string name="_name">-------------------------------------</string>
     <string name="_idCode">"Welcome Tenno"</string>
     <string name="_email">Email: -------------------------------------------------------</string>
     <string name="_phone">Phone: --------------------------------</string>
+
+    <string name="add_name">Name: </string>
+    <string name="add_id">Student ID: </string>
+    <string name="add_email">Email: </string>
+    <string name="add_phone">Phone Number: </string>
 
 </resources>

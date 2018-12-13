@@ -11,8 +11,8 @@ public class MainViewModel extends ViewModel {
     public MainViewModel() {
         this.name = "-------------------------------------";
         this.id = "Welcome Tenno";
-        this.email = "Email: -------------------------------------------------------";
-        this.phone = "Phone: --------------------------------";
+        this.email = "-------------------------------------------------------";
+        this.phone = "--------------------------------";
     }
 
     public String getName() {
@@ -24,11 +24,11 @@ public class MainViewModel extends ViewModel {
     }
 
     public String getEmail() {
-        return email;
+        return "Email: " + email;
     }
 
     public String getPhone() {
-        return phone;
+        return "Phone: " + phone;
     }
 
     public void setName(String name) {

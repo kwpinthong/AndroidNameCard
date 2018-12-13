@@ -1,5 +1,6 @@
 package com.example.navadon.androidnamecard;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -38,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private String emailText = "";
     private String idText = "";
     private String phoneText = "";
-    ArrayList<Student> students = new ArrayList<Student>();
+    ArrayList<Student> students = new ArrayList<>();
     private int count = 0;
-    private boolean unRead = true;
+    public static boolean unRead = true;
 
 
     @Override
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 viewModel.setName(student.name);
                 viewModel.setEmail(student.email);
                 viewModel.setPhone(student.phone);
-//                click();
             }
         });
     }
@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
+                                students.clear();
                                 for (QueryDocumentSnapshot document : task.getResult()) {
 
                                     Student student = document.toObject(Student.class);
@@ -176,6 +177,11 @@ public class MainActivity extends AppCompatActivity {
         viewModel.setId(id);
         viewModel.setEmail(email);
         viewModel.setPhone(phone);
+    }
+
+    public void toAdd(View view) {
+        Intent i= new Intent(MainActivity.this, AddActivity.class);
+        startActivity(i);
     }
     /*
     private void changeInformation(int check){
