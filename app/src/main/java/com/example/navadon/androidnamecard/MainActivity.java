@@ -1,6 +1,7 @@
 package com.example.navadon.androidnamecard;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.navadon.androidnamecard.databinding.ActivityMainBinding;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -50,6 +52,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initFirestore();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            unRead = true;
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            unRead = true;
+        }
     }
 
     private void initView(){
@@ -155,21 +169,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setData(){
-        Student student = students.get(count);
-        viewModel.setId(student.id);
-        viewModel.setName(student.name);
-        viewModel.setEmail(student.email);
-        viewModel.setPhone(student.phone);
+        if (students.size() > 0) {
+            Student student = students.get(count);
+            viewModel.setId(student.id);
+            viewModel.setName(student.name);
+            viewModel.setEmail(student.email);
+            viewModel.setPhone(student.phone);
 
-        if (students.size()-1 > count)
-            count++;
-        else count = 0;
+            if (students.size()-1 > count)
+                count++;
+            else count = 0;
 
-        // Step 3 //
-        binding.name.setText(viewModel.getName());
-        binding.idCode.setText(viewModel.getId());
-        binding.email.setText(viewModel.getEmail());
-        binding.phone.setText(viewModel.getPhone());
+            // Step 3 //
+            binding.name.setText(viewModel.getName());
+            binding.idCode.setText(viewModel.getId());
+            binding.email.setText(viewModel.getEmail());
+            binding.phone.setText(viewModel.getPhone());
+        }
     }
 
     private void setDataViewModel(String name, String id, String email, String phone){
