@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/_8">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
         android:id="@+id/box_name"
-        android:layout_width="650dp"
-        android:layout_height="35dp"
+        android:layout_width="490dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -25,8 +25,8 @@
 
     <EditText
         android:id="@+id/box_id"
-        android:layout_width="650dp"
-        android:layout_height="35dp"
+        android:layout_width="490dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -43,8 +43,8 @@
 
     <EditText
         android:id="@+id/box_email"
-        android:layout_width="650dp"
-        android:layout_height="35dp"
+        android:layout_width="490dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -61,8 +61,8 @@
 
     <EditText
         android:id="@+id/box_phone"
-        android:layout_width="650dp"
-        android:layout_height="35dp"
+        android:layout_width="490dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -72,10 +72,10 @@
         android:inputType="numberPassword|phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
+        app:layout_constraintVertical_bias="0.574" />
 
     <Button
         android:id="@+id/btn_add"

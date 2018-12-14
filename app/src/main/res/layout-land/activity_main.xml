@@ -8,11 +8,12 @@
             name="viewmodel"
             type="com.example.navadon.androidnamecard.MainViewModel" />
     </data>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        android:background="@drawable/_6">
+        android:background="@drawable/_6"
+        tools:context=".MainActivity">
 
         <TextView
             android:id="@+id/name"
@@ -22,11 +23,11 @@
             android:textColor="@color/color_White"
             android:textSize="@dimen/size_30"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.882"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.300" />
+            app:layout_constraintVertical_bias="0.314" />
 
         <TextView
             android:id="@+id/idCode"
@@ -40,7 +41,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.450" />
+            app:layout_constraintVertical_bias="0.458" />
 
         <TextView
             android:id="@+id/email"
@@ -50,11 +51,11 @@
             android:textColor="@color/color_White"
             android:textSize="@dimen/size_15"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.866"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.550" />
+            app:layout_constraintVertical_bias="0.578" />
 
         <TextView
             android:id="@+id/phone"
@@ -64,11 +65,11 @@
             android:textColor="@color/color_White"
             android:textSize="@dimen/size_15"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.791"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.630" />
+            app:layout_constraintVertical_bias="0.65" />
 
         <Button
             android:id="@+id/btn_change"
@@ -78,14 +79,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:onClick="click"
             android:text="@string/btn_change"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.828"
+            app:layout_constraintHorizontal_bias="0.918"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.865"
-            android:onClick="click" />
+            app:layout_constraintVertical_bias="0.894" />
 
         <Button
             android:id="@+id/btn_add"
@@ -95,14 +96,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:onClick="toAdd"
             android:text="@string/btn_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.985"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintHorizontal_bias="0.95"
-            android:onClick="toAdd" />
+            app:layout_constraintVertical_bias="0.029" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

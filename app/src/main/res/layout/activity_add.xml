@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/_7">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
         android:id="@+id/box_name"
-        android:layout_width="370dp"
-        android:layout_height="35dp"
+        android:layout_width="296dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -19,14 +18,15 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.117" />
 
     <EditText
         android:id="@+id/box_id"
-        android:layout_width="370dp"
-        android:layout_height="35dp"
+        android:layout_width="296dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -36,15 +36,15 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.207" />
 
     <EditText
         android:id="@+id/box_email"
-        android:layout_width="370dp"
-        android:layout_height="35dp"
+        android:layout_width="296dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -54,15 +54,15 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
     <EditText
         android:id="@+id/box_phone"
-        android:layout_width="370dp"
-        android:layout_height="35dp"
+        android:layout_width="296dp"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
